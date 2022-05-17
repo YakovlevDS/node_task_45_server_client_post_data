@@ -6,9 +6,23 @@
 </head>
 <body>
 <script>
+// sendUser();
+// async function sendUser() {
+//     const response = await fetch("/user", { method: "POST", body: "Tom Smith"});
+//     const responseText = await response.text();
+//     console.log(responseText);
+// }
+// solution2
 sendUser();
-async function sendUser() {
-    const response = await fetch("/user", { method: "POST", body: "Tom Smith"});
+async function sendUser(user) {
+    const response = await fetch("/user", { 
+            method: "POST", 
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: "Tom",
+                age: 37
+        })
+    });
     const responseText = await response.text();
     console.log(responseText);
 }
